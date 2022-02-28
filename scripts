@@ -1,0 +1,358 @@
+<script>
+$("#note").keypress(function (e) {
+    if(e.which == 13 && !e.shiftKey) {        
+        $(this).closest("form").submit();
+        e.preventDefault();
+    }
+});
+</script>
+
+<script>
+// Make the DIV element draggable:
+dragElement(document.getElementById("notes"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "bar")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "bar").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+
+
+<script>
+// Make the DIV element draggable:
+dragElement(document.getElementById("contacts"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "bar")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "bar").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+
+<script>
+// when the DOM is ready
+$(document).ready(function() {
+	// get the amount (length) of ".counter" classes
+	// and set that amount as a variable called jobcounter
+	const jobcounter = $('.note').length;
+
+	// find the class ".counter"
+  // and insert the jobcounter variable as text
+	$('.counter').text(jobcounter); 
+});
+</script>
+
+
+
+
+
+
+
+
+<script>
+// Make the DIV element draggable:
+dragElement(document.getElementById("start"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "bar")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "bar").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.app-start').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-start').forEach(target => target.classList.add('up')); 
+    });
+ });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.app-start').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-store').forEach(target => target.classList.remove('up')); 
+    });
+ });
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.app-store').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-store').forEach(target => target.classList.add('up')); 
+    });
+ });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.app-store').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-start').forEach(target => target.classList.remove('up')); 
+    });
+ });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.dock-item.start').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-start').forEach(target => target.classList.add('up')); 
+    });
+ });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.dock-item.start').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-store').forEach(target => target.classList.remove('up')); 
+    });
+ });
+});
+</script>
+
+<script>
+// Make the DIV element draggable:
+dragElement(document.getElementById("twitter"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "bar")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "bar").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.dock-item.store').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-store').forEach(target => target.classList.add('up')); 
+    });
+ });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ document.querySelectorAll('.dock-item.store').forEach(trigger => {
+  trigger.addEventListener('click', function(){ 
+    document.querySelectorAll('.app-start').forEach(target => target.classList.remove('up')); 
+    });
+ });
+});
+</script>
+
+
+<script>
+
+// Make the DIV element draggable:
+dragElement(document.getElementById("store"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "bar")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "bar").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+
+<script>
+	var now = new Date();
+	var hours = now.getHours();
+	if(hours >= 6 && hours <= 24){
+	    $('.wallpaper').addClass('night');
+	}
+	else{
+	    $('.wallpaper').removeClass('night');
+	}
+</script>
